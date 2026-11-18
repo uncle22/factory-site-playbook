@@ -1,0 +1,60 @@
+Documentation Licence — CC BY-NC-SA 4.0
+
+Copyright (c) 2026 YB-L (https://github.com/uncle22)
+
+This licence applies to the documentation in this repository: `SKILL.md`,
+`README.md`, `README.zh-CN.md`, and everything under `references/` and
+`assets/`. The code under `scripts/` is licensed separately under the MIT
+licence; see `LICENSE`.
+
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+You are free to:
+
+  Share — copy and redistribute the material in any medium or format.
+
+  Adapt — remix, transform, and build upon the material.
+
+The licensor cannot revoke these freedoms as long as you follow the licence
+terms.
+
+Under the following terms:
+
+  Attribution — You must give appropriate credit to YB-L, provide a link to
+  this repository, and indicate if changes were made. You may do so in any
+  reasonable manner, but not in any way that suggests the licensor endorses
+  you or your use.
+
+  NonCommercial — You may not use the material for commercial purposes.
+  Reading it while running a business is fine. Repackaging it as a paid
+  course, a paid template pack, a client deliverable, or a paid product of
+  any kind is not.
+
+  ShareAlike — If you remix, transform, or build upon the material, you must
+  distribute your contributions under the same licence as the original. You
+  may not relicense an adapted version as proprietary, closed, or under a
+  more permissive licence.
+
+  No additional restrictions — You may not apply legal terms or technological
+  measures that legally restrict others from doing anything the licence
+  permits.
+
+Attribution, in practice. Use this line, or something equivalent that keeps
+the name, the repository and the licence:
+
+  Factory Site Playbook by YB-L (https://github.com/uncle22/factory-site-playbook),
+  licensed under CC BY-NC-SA 4.0. Changes were made.
+
+If your use is commercial and you want it to be, that is a separate
+conversation rather than a loophole. Ask first: https://github.com/uncle22
+
+Full legal code:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+Human-readable summary (not a substitute for the legal code):
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+No warranty. The material is provided as is, without warranties of any kind,
+express or implied, including fitness for a particular purpose. Following
+these procedures on a live site is your decision and your risk. Every command
+in this repository can break something if it is run in the wrong place.

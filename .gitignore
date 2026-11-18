@@ -1,0 +1,29 @@
+# Git hygiene
+
+Keep credentials and commercial data out of the repository, permanently.
+
+# credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+*_credentials*
+deploy.local.*
+
+# environment-specific config
+config.local.*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# node, when testing scripts
+node_modules/
+package-lock.json
+
+# build artefacts
+__pycache__/
+*.pyc

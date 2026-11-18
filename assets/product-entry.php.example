@@ -1,0 +1,108 @@
+# Asset: product entry skeleton
+
+Fill one block per product. Every field is consumed by exactly one part of the
+product page — see `references/02-product-data.md` for the full field contracts.
+
+Values below are placeholders. Replace everything, including the hex colours.
+
+```php
+'xx-123' => array(
+    // Key = URL slug. Singular, lowercase, hyphenated, ASCII only.
+    // A model sold as "XX100A/B" becomes 'xx-100a-b'.
+    'model'   => 'XX123A/B',
+
+    // Model + one differentiating attribute. The attribute comes from the
+    // naming matrix, never from the umbrella term.
+    'title'   => 'XX123A/B &mdash; Workbench with Adjustable Height',
+
+    // 'series' is the display label; 'line' is the category slug.
+    // 'line' MUST match an existing category or the listing never shows it.
+    'series'  => 'Steel Workbenches',
+    'line'    => 'steel-workbenches',
+
+    // Chips rendered on cards and detail. Common values: 'new', 'bestseller'.
+    // Only claim what a document can back up.
+    'badges'  => array( 'new' ),
+
+    // Cover is square, WebP, <= 120 KB. It is the card image AND the default
+    // social preview, so crop it deliberately.
+    'cover'   => $A . 'xx123-1.webp',
+
+    // Gallery order = display order. First image is what a buyer sees first.
+    'gallery' => array( 'xx123-1.webp', 'xx123-2.webp', 'xx123-3.webp' ),
+
+    // Option groups render as swatches or list rows.
+    'options' => array(
+        array(
+            'label' => 'Powder Coat Color',
+            'items' => array(
+                array( 'name' => 'Graphite', 'hex' => '#3a3d40', 'on' => true ),
+                array( 'name' => 'Light Grey', 'hex' => '#c9ccce' ),
+            ),
+        ),
+        array(
+            'label' => 'Width',
+            'items' => array(
+                array( 'name' => 'XX123A &mdash; 120 cm wide', 'hex' => '#b9b2a8', 'on' => true ),
+                array( 'name' => 'XX123B &mdash; 150 cm wide', 'hex' => '#b9b2a8' ),
+            ),
+        ),
+        array(
+            'label' => 'OEM / ODM',
+            'items' => array(
+                array( 'name' => 'Custom powder coat colours' ),
+                array( 'name' => 'Laser-etched logo plate' ),
+            ),
+        ),
+    ),
+
+    // Quick specs: 6-8 rows. This is what gets read; the full table is for
+    // people who already decided. UNKNOWN VALUES STAY EMPTY with a visible
+    // note - never fill them with an estimate.
+    'qs'      => array(
+        'MOQ'          => '50 pcs',
+        'Lead Time'    => '35&ndash;45 days',
+        'Overall Size' => '150 &times; 75 &times; 85 cm',
+        'Work Height'  => '85 cm (fixed)',
+        'Max Load'     => '500 kg',
+        'Assembly'     => 'Flat-packed &mdash; bolts and tool included',
+    ),
+
+    // Selling points, one sentence each, at least half with a number.
+    'points'  => array(
+        'Two widths share one frame, 120 cm and 150 cm, both 75 cm deep',
+        'Frame is welded, not bolted at the joints, so it does not rack under load',
+        'Two shelf levels below the top, each rated for 120 kg',
+        'Legs accept levelling feet or castors without a second part number',
+        'Powder-coated finish in two colours, applied after welding',
+    ),
+
+    // Full table. May be longer than 'qs' but must never contradict it.
+    'specs'   => array(
+        'Model'        => 'XX123A/B',
+        'Overall Size' => '150 &times; 75 &times; 85 cm',
+        'Packing'      => '155 &times; 80 &times; 18 cm',
+    ),
+),
+```
+
+## Adding an entry, step by step
+
+1. Back up: `cp products-data.php products-data.php.bak-<slug>`
+2. Locate the top of the array. New products go first — buyers expect newest-first.
+3. Insert the new block above the current first entry.
+4. Add a sort key: `'xx-123' => 2026111401` (date, then sequence within the day).
+5. Replace **by block**: find `'xx-123' => array(` through its matching `),`. Never regenerate the file.
+6. Run the checklist in `references/02-product-data.md`, then deploy with `deploy_theme_file.py` and verify the listing count.
+
+## Sort map
+
+```php
+$product_sort = array(
+    'xx-123' => 2026111402,   // newest
+    'xx-122' => 2026111401,
+);
+```
+
+A key missing from this map sorts to the end of every listing. If that is
+unexpected, it is a bug — the entry was added without a sort key.
